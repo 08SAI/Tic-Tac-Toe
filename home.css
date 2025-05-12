@@ -1,0 +1,199 @@
+:root {
+    --primary-color: #000000;
+    --secondary-color: #1a0000;
+    --accent-color: #b30000;
+    --text-color: #f8f8f8;
+    --x-color: #ff3333;
+    --o-color: #cccccc;
+    --hover-color: #800000;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+}
+
+h1 {
+    margin-bottom: 30px;
+    font-size: 3rem;
+    text-shadow: 3px 3px 6px rgba(179, 0, 0, 0.6);
+    color: #ff0000;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    margin: 30px auto;
+    max-width: 300px;
+    padding: 15px;
+    background-color: #0a0000;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.3), inset 0 0 10px rgba(255, 0, 0, 0.2);
+    border: 3px solid #400000;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    border: 2px solid #400000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(179, 0, 0, 0.3);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.cell:hover {
+    background-color: var(--hover-color);
+    transform: scale(1.05);
+}
+
+.cell[data-value="-1"] {
+    color: var(--x-color);
+}
+
+.cell[data-value="1"] {
+    color: var(--o-color);
+}
+
+.modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal {
+    background-color: var(--secondary-color);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 400px;
+    width: 80%;
+    box-shadow: 0 10px 20px rgba(255, 0, 0, 0.3);
+    animation: fadeIn 0.3s;
+    border: 3px solid #800000;
+    background-image: linear-gradient(to bottom, #1a0000, #000000);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.modal h2 {
+    margin-top: 0;
+    color: var(--text-color);
+}
+
+.modal p {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.btn {
+    background-color: var(--accent-color);
+    color: white;
+    border: 2px solid #ff0000;
+    padding: 12px 24px;
+    margin: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 4px 8px rgba(139, 0, 0, 0.3);
+}
+
+.btn:hover {
+    background-color: var(--hover-color);
+    transform: translateY(-2px);
+    border-color: #ff3333;
+    box-shadow: 0 6px 12px rgba(255, 0, 0, 0.4);
+}
+
+.game-info {
+    margin-top: 20px;
+    font-size: 1.2rem;
+}
+
+.player-indicator {
+    padding: 15px;
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 1.3rem;
+    border: 2px solid #600000;
+    box-shadow: 0 4px 8px rgba(179, 0, 0, 0.2);
+}
+
+.current-player-x {
+    color: var(--x-color);
+}
+
+.current-player-o {
+    color: var(--o-color);
+}
+
+.reset-btn {
+    margin-top: 20px;
+}
+
+.winner-modal {
+    text-align: center;
+}
+
+.winner-modal h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    letter-spacing: 1px;
+}
+
+.x-win {
+    color: var(--x-color);
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+}
+
+.o-win {
+    color: var(--o-color);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+.countdown {
+    font-size: 1.5rem;
+    margin-top: 15px;
+    color: #ff3333;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
